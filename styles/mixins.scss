@@ -1,0 +1,11 @@
+@import "./variables";
+
+@mixin apply-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @error "Breakpoint #{$breakpoint} is invalid";
+  }
+}
