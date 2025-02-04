@@ -1,0 +1,31 @@
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 12px;
+  line-height: 14px;
+
+  &__container-data {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__title {
+    text-transform: uppercase;
+  }
+  &__info {
+    text-transform: uppercase;
+  }
+  &__price {
+    text-transform: uppercase;
+  }
+  &__btn-delete {
+    color: #df0000;
+  }
+}
