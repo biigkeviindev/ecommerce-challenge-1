@@ -4,9 +4,11 @@ import ProductDetail from "@/features/products/components/ProductDetail";
 
 export default function ProductDetailView() {
   return (
-    <Layout>
-      <BarBack uri="/" />
-      <ProductDetail />
-    </Layout>
+    <>
+      <Layout>
+        <BarBack uri="/" />
+        <ProductDetail />
+      </Layout>
+    </>
   );
 }

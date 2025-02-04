@@ -1,9 +1,11 @@
+import { useCartContext } from "@/features/cart/hooks/useCartContext";
 import { useProductById } from "@/features/products/hooks/useProducts";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 
 export default function ProductDetail() {
   const router = useRouter();
+  const { items, setItems } = useCartContext();
 
   const {
     data: productDetail,
@@ -76,7 +78,19 @@ export default function ProductDetail() {
             </div>
             <p>{styleSelector?.name}</p>
           </section>
-          <button className="detail-view__add-cart">AÑADIR</button>
+          <button
+            className="detail-view__add-cart"
+            onClick={() => {
+              setItems([
+                ...items,
+                {
+                  title: "kevin",
+                },
+              ]);
+            }}
+          >
+            AÑADIR
+          </button>
         </div>
       </div>
     </section>
