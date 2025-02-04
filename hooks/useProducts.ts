@@ -14,10 +14,10 @@ export const useProducts = (
   });
 };
 
-export const useProductById = (search: string) => {
+export const useProductById = (search: string | null | undefined) => {
   return useQuery({
     queryKey: ["product", search],
-    queryFn: () => fetchProductById(search),
+    queryFn: () => fetchProductById(String(search)),
     enabled: !!search,
   });
 };

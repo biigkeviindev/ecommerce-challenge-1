@@ -1,8 +1,14 @@
 import React from "react";
+import { useRouter } from "next/router";
 
 export default function ProductCard({ product }: ProductCard) {
+  const { push } = useRouter();
+
   return (
-    <div className="product-card">
+    <div
+      onClick={() => push(`/product/${product.id}`)}
+      className="product-card"
+    >
       <img
         className="product-card__media"
         src={product.imageUrl}
