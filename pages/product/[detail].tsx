@@ -5,7 +5,7 @@ import ProductDetail from "@/features/products/components/ProductDetail";
 export default function ProductDetailView() {
   return (
     <Layout>
-      <BarBack uri="/smartphone-list" />
+      <BarBack uri="/" />
       <ProductDetail />
     </Layout>
   );
