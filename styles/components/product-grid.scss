@@ -1,0 +1,15 @@
+.products-grid {
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+
+    @include apply-to("xs") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include apply-to("md") {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+}
