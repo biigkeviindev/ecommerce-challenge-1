@@ -8,13 +8,16 @@ export default function SearchBox() {
 
   return (
     <div className="search-box">
-      <input
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        className="search-box"
-        placeholder="Search for a smartphone..."
-        type="text"
-      />
+      <div className="search-box__container">
+        <input
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="search-box"
+          placeholder="Search for a smartphone..."
+          type="text"
+        />
+        <img onClick={() => setSearch("")} src="Close.svg" alt="Close Icon" />
+      </div>
       <p className="search-box__size-items">{data && data.length} RESULTS</p>
     </div>
   );
