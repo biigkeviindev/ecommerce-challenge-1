@@ -1,7 +1,8 @@
+import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { useCartContext } from "@/features/cart/hooks/useCartContext";
 import { useProductById } from "@/features/products/hooks/useProducts";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
 
 export default function ProductDetail() {
   const router = useRouter();
@@ -19,6 +20,20 @@ export default function ProductDetail() {
   const [capacitySelector, setCapacitySelector] = useState(
     productDetail?.storageOptions[0]
   );
+
+  const addToCart = () => {
+    const itemToAdd = {
+      id: uuidv4(),
+      image: styleSelector.imageUrl,
+      name: productDetail.name,
+      customize: {
+        color: styleSelector.name,
+        capacity: capacitySelector.capacity,
+      },
+      price: 100,
+    };
+    setItems([...items, itemToAdd]);
+  };
 
   if (error || !productDetail) return <p>No se encontro el telefono.</p>;
 
@@ -79,15 +94,9 @@ export default function ProductDetail() {
             <p>{styleSelector?.name}</p>
           </section>
           <button
+            disabled={!styleSelector || !capacitySelector}
             className="detail-view__add-cart"
-            onClick={() => {
-              setItems([
-                ...items,
-                {
-                  title: "kevin",
-                },
-              ]);
-            }}
+            onClick={addToCart}
           >
             AÑADIR
           </button>

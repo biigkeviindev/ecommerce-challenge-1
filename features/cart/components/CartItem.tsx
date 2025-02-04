@@ -1,20 +1,31 @@
 import React from "react";
+import { useCartContext } from "../hooks/useCartContext";
 
-export default function CartItem() {
+export default function CartItem({ data }: any) {
+  const { setItems, items } = useCartContext();
+
+  const deleteItem = () => {
+    setItems(items.filter((item) => item.id !== data.id));
+  };
+
   return (
     <div className="cart-item">
       <div>
-        <img className="cart-item__media" src="iphone.png" alt="" />
+        <img className="cart-item__media" src={data.image} alt="" />
       </div>
       <div className="cart-item__content">
         <div className="cart-item__container-data">
           <div>
-            <p className="cart-item__title">galaxy s24 ultra</p>
-            <p className="cart-item__info">512 GB | violeta titanium</p>
+            <p className="cart-item__title">{data.name}</p>
+            <p className="cart-item__info">
+              {data.customize.capacity} | {data.customize.color}
+            </p>
           </div>
-          <span className="cart-item__price">1800 EUR</span>
+          <span className="cart-item__price">{data.price} EUR</span>
         </div>
-        <p className="cart-item__btn-delete">Eliminar</p>
+        <p onClick={deleteItem} className="cart-item__btn-delete">
+          Eliminar
+        </p>
       </div>
     </div>
   );
