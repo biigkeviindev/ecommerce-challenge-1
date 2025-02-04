@@ -5,7 +5,7 @@ import { useCartContext } from "../hooks/useCartContext";
 import { CartItemType } from "../types/cart";
 
 export default function CartItemList() {
-  const { items, setItems } = useCartContext();
+  const { items } = useCartContext();
 
   return (
     <section>

@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useCartContext } from "@/features/cart/hooks/useCartContext";
 import { useProductById } from "@/features/products/hooks/useProducts";
 import { useRouter } from "next/router";
+import {
+  ProductColorOptionType,
+  ProductStorageOptionType,
+} from "../types/product";
 
 export default function ProductDetail() {
   const router = useRouter();
@@ -14,14 +18,21 @@ export default function ProductDetail() {
     error,
   } = useProductById(String(router.query.detail));
 
-  const [styleSelector, setStyleSelector] = useState(
-    productDetail?.colorOptions[0]
-  );
-  const [capacitySelector, setCapacitySelector] = useState(
-    productDetail?.storageOptions[0]
-  );
+  const [styleSelector, setStyleSelector] = useState<
+    ProductColorOptionType | undefined
+  >(undefined);
+  const [capacitySelector, setCapacitySelector] = useState<
+    ProductStorageOptionType | undefined
+  >(undefined);
+
+  useEffect(() => {
+    setStyleSelector(productDetail?.colorOptions[0]);
+    setCapacitySelector(productDetail?.storageOptions[0]);
+  }, [productDetail]);
 
   const addToCart = () => {
+    if (!styleSelector || !capacitySelector) return;
+
     const itemToAdd = {
       id: uuidv4(),
       image: styleSelector.imageUrl,
@@ -86,7 +97,7 @@ export default function ProductDetail() {
                   style={{
                     backgroundColor: style.hexCode,
                     borderColor:
-                      style?.hex === styleSelector?.hex ? "#000" : "",
+                      style?.hex === styleSelector?.hexCode ? "#000" : "",
                   }}
                 />
               ))}
