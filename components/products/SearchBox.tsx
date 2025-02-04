@@ -1,14 +1,21 @@
+import { useCatalog } from "@/hooks/useCatalog";
+import { useProducts } from "@/hooks/useProducts";
 import React from "react";
 
 export default function SearchBox() {
+  const { search, setSearch } = useCatalog();
+  const { data, isLoading, error } = useProducts(search, 20);
+
   return (
     <div className="search-box">
       <input
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
         className="search-box"
         placeholder="Search for a smartphone..."
         type="text"
       />
-      <p className="search-box__size-items">20 RESULTS</p>
+      <p className="search-box__size-items">{data && data.length} RESULTS</p>
     </div>
   );
 }

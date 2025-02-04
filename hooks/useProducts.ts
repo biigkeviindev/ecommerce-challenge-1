@@ -1,18 +1,23 @@
 import { fetchProductById, fetchProductList } from "@/services/products";
 import { useQuery } from "@tanstack/react-query";
 
-export const useProducts = () => {
+const LIMIT_PRODUCTS_API_REQUEST = 20;
+
+export const useProducts = (
+  search: string | null,
+  limit: number = LIMIT_PRODUCTS_API_REQUEST
+) => {
   return useQuery({
-    queryKey: ["products"],
+    queryKey: ["products", { limit, search }],
     queryFn: fetchProductList,
     staleTime: 1000 * 60 * 5,
   });
 };
 
-export const useProductById = (id: string) => {
+export const useProductById = (search: string) => {
   return useQuery({
-    queryKey: ["product", id],
-    queryFn: () => fetchProductById(id),
-    enabled: !!id,
+    queryKey: ["product", search],
+    queryFn: () => fetchProductById(search),
+    enabled: !!search,
   });
 };
