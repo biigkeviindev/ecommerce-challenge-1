@@ -12,7 +12,6 @@ export default function ProductDetail() {
     error,
   } = useProductById(String(router.query.detail));
 
-  console.log(productDetail);
   const [styleSelector, setStyleSelector] = useState(
     productDetail?.colorOptions[0]
   );
