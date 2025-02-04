@@ -2,14 +2,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
   border: 0.5px solid black;
   padding: 16px;
   text-transform: uppercase;
   font-weight: 300;
+  height: 344px;
 
   &__media {
-    width: 14rem;
-    height: 14rem;
+    width: 329px;
+    height: 257px;
   }
 
   &__data {

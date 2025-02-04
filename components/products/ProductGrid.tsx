@@ -9,7 +9,6 @@ export default function ProductGrid() {
 
   return (
     <section className="products-grid">
-      <p>{`Busqueda: ${search}`}</p>
       <div className="products-grid__list">
         {products?.map((product: any) => (
           <ProductCard product={product} />
