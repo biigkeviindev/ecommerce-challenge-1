@@ -9,7 +9,7 @@ export default function CartItemList() {
 
   return (
     <section>
-      <p>CART (0)</p>
+      <p>CART ({items.length})</p>
       <div>
         {items.map((cartItem: CartItemType) => (
           <CartItem data={cartItem} />
