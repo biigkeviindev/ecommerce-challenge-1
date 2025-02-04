@@ -1,7 +1,11 @@
-import Layout from "@/components/layout/Layout";
+import Layout from "@/features/layout/components/Layout";
+
+import { CatalogProvider } from "@/contexts/CatalogContext";
+import ProductList from "@/features/products/components/ProductList";
+import SearchBox from "@/features/search/SearchBox";
 import Head from "next/head";
 
-export default function Home() {
+export default function SmartphoneList() {
   return (
     <>
       <Head>
@@ -10,9 +14,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout>
-        <div className="cc">container</div>
-      </Layout>
+      <CatalogProvider>
+        <Layout>
+          <SearchBox />
+          <ProductList />
+        </Layout>
+      </CatalogProvider>
     </>
   );
 }

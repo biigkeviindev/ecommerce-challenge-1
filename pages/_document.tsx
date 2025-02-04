@@ -1,4 +1,4 @@
-import NavigationBar from "@/components/layout/NavigationBar";
+import NavigationBar from "@/features/layout/components/NavigationBar";
 import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {

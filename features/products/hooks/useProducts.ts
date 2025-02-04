@@ -1,4 +1,7 @@
-import { fetchProductById, fetchProductList } from "@/services/products";
+import {
+  fetchProductById,
+  fetchProductList,
+} from "@/features/products/services/products";
 import { useQuery } from "@tanstack/react-query";
 
 const LIMIT_PRODUCTS_API_REQUEST = 20;

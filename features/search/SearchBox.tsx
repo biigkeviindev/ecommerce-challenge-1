@@ -1,5 +1,5 @@
 import { useCatalog } from "@/hooks/useCatalog";
-import { useProducts } from "@/hooks/useProducts";
+import { useProducts } from "@/features/products/hooks/useProducts";
 import React from "react";
 
 export default function SearchBox() {

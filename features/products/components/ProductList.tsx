@@ -1,9 +1,9 @@
-import { useProducts } from "@/hooks/useProducts";
 import React from "react";
-import ProductCard from "./ProductCard";
 import { useCatalog } from "@/hooks/useCatalog";
+import { useProducts } from "@/features/products/hooks/useProducts";
+import ProductCard from "@/features/products/components/ProductCard";
 
-export default function ProductGrid() {
+export default function ProductList() {
   const { search } = useCatalog();
   const { data: products, isLoading, error } = useProducts(search, 20);
 
