@@ -57,7 +57,7 @@ export default function ProductDetail() {
     <section className="detail-view">
       <div className="detail-view__options">
         <div className="container">
-          <div>
+          <div className="media">
             <img
               className="detail-view__image-url"
               src={styleSelector ? styleSelector.imageUrl : defaultImage}

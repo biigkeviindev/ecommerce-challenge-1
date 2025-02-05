@@ -12,6 +12,11 @@
 
       .container {
         flex: 1;
+
+        .media {
+          display: flex;
+          justify-content: center;
+        }
       }
     }
   }
