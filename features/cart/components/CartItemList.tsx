@@ -8,9 +8,9 @@ export default function CartItemList() {
   const { items } = useCartContext();
 
   return (
-    <section>
+    <section className="cart-item-list">
       <p>CART ({items.length})</p>
-      <div>
+      <div className="cart-item-list__container-items">
         {items.map((cartItem: CartItemType, index: number) => (
           <CartItem data={cartItem} key={index} />
         ))}
