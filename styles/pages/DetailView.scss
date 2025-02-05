@@ -54,5 +54,10 @@
     height: 48px;
     cursor: pointer;
     border: 0px;
+
+    &:disabled {
+      color: #c2bfbc;
+      background-color: #f3f2f2;
+    }
   }
 }
