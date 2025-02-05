@@ -20,9 +20,9 @@ export default function NavigationBar({ showCart = true }) {
               alt="Logo"
             />
             <p>{items.length || 0}</p>
+            <img className="navigation-bar__btn-home" src="/home.png" alt="" />
           </div>
         )}
-        <img className="navigation-bar__btn-home" src="home.png" alt="" />
       </div>
     </div>
   );
