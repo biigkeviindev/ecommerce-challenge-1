@@ -6,7 +6,7 @@ import SearchBox from "@/features/search/components/SearchBox";
 export default function IndexView() {
   return (
     <>
-      <NavigationBar />
+      <NavigationBar showCart={true} />
       <Layout>
         <SearchBox />
         <ProductList />

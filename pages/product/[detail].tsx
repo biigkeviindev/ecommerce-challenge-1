@@ -6,7 +6,7 @@ import ProductDetail from "@/features/products/components/ProductDetail";
 export default function ProductDetailView() {
   return (
     <>
-      <NavigationBar />
+      <NavigationBar showCart={true} />
       <Layout>
         <BarBack uri="/" />
         <ProductDetail />
