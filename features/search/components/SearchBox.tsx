@@ -1,4 +1,4 @@
-import { useCatalog } from "@/hooks/useCatalog";
+import { useCatalog } from "@/contexts/useCatalog";
 import { useProducts } from "@/features/products/hooks/useProducts";
 import React, { useState } from "react";
 
