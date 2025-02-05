@@ -22,7 +22,7 @@ export default function NavigationBar({ showCart = true }: NavigationBarProps) {
               <img
                 className="navigation-bar__icon"
                 src="/cartIcon.svg"
-                alt="Logo"
+                alt="Cart icon"
               />
               <p>{items.length || 0}</p>
             </div>

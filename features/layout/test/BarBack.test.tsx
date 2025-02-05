@@ -4,6 +4,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "@/lib/react-query";
 import { ReactNode } from "react";
 import { useRouter } from "next/router";
+import { CartProvider } from "@/contexts/CartContext";
 
 jest.mock("next/router", () => ({
   useRouter: jest.fn(),
