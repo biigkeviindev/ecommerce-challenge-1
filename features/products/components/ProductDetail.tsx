@@ -14,11 +14,9 @@ export default function ProductDetail() {
   const router = useRouter();
   const { items, setItems } = useCartContext();
 
-  const {
-    data: productDetail,
-    isLoading,
-    error,
-  } = useProductById(String(router.query.detail));
+  const { data: productDetail, error } = useProductById(
+    String(router.query.detail)
+  );
 
   const [finalPrice, setFinalPrice] = useState<number | undefined>(undefined);
   const [styleSelector, setStyleSelector] = useState<
@@ -60,7 +58,7 @@ export default function ProductDetail() {
           <img
             className="detail-view__image-url"
             src={styleSelector ? styleSelector.imageUrl : defaultImage}
-            alt=""
+            alt={productDetail.name}
           />
         </div>
 
