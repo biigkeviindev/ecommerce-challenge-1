@@ -1,6 +1,18 @@
 import React from "react";
 import { useRouter } from "next/router";
 
+type ProductCard = {
+  product: Product;
+};
+
+type Product = {
+  basePrice: number;
+  brand: string;
+  id: string;
+  imageUrl: string;
+  name: string;
+};
+
 export default function ProductCard({ product }: ProductCard) {
   const { push } = useRouter();
 
@@ -26,15 +38,3 @@ export default function ProductCard({ product }: ProductCard) {
     </div>
   );
 }
-
-type ProductCard = {
-  product: Product;
-};
-
-type Product = {
-  basePrice: number;
-  brand: string;
-  id: string;
-  imageUrl: string;
-  name: string;
-};

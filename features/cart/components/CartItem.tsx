@@ -1,7 +1,12 @@
 import React from "react";
 import { useCartContext } from "../hooks/useCartContext";
+import { CartItemType } from "../types/cart";
 
-export default function CartItem({ data }: any) {
+type CartItemProps = {
+  data: CartItemType;
+};
+
+export default function CartItem({ data }: CartItemProps) {
   const { setItems, items } = useCartContext();
 
   const deleteItem = () => {

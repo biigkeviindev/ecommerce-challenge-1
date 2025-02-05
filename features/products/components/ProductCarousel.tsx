@@ -1,5 +1,4 @@
 import React from "react";
-import { useProducts } from "../hooks/useProducts";
 import ProductCard from "./ProductCard";
 
 export default function ProductCarousel({ products }: any) {

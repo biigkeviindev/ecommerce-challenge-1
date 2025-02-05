@@ -2,7 +2,7 @@ import { useCartContext } from "@/features/cart/hooks/useCartContext";
 import { useRouter } from "next/router";
 
 type NavigationBarProps = {
-  showCart: boolean;
+  showCart: boolean | undefined;
 };
 
 export default function NavigationBar({ showCart = true }: NavigationBarProps) {
