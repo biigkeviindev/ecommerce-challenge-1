@@ -1,18 +1,18 @@
-@import "./mixins.scss";
+@use "./mixins.scss";
 
-@import "./pages/DetailView.scss";
+@use "./pages/DetailView.scss";
 
-@import "./components/layout.scss";
-@import "./components/navigation-bar.scss";
-@import "./components/search-box.scss";
-@import "./components/product-card.scss";
-@import "./components/product-grid.scss";
-@import "./components/bar-back.scss";
-@import "./components/cart-item.scss";
-@import "./components/cart-shop-controller.scss";
-@import "./components/product-carousel.scss";
-@import "./components/product-specs.scss";
-@import "./components/cart-item-list.scss";
+@use "./components/layout.scss";
+@use "./components/navigation-bar.scss";
+@use "./components/search-box.scss";
+@use "./components/product-card.scss";
+@use "./components/product-grid.scss";
+@use "./components/bar-back.scss";
+@use "./components/cart-item.scss";
+@use "./components/cart-shop-controller.scss";
+@use "./components/product-carousel.scss";
+@use "./components/product-specs.scss";
+@use "./components/cart-item-list.scss";
 
 html {
   font-size: 12px;
