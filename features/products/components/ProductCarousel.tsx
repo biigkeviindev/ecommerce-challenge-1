@@ -5,7 +5,7 @@ type ProductCarouselProps = {
   products: Array<any>;
 };
 
-export default function ProductCarousel({ products }: any) {
+export default function ProductCarousel({ products }: ProductCarouselProps) {
   return (
     <section className="product-carousel">
       <h2>SIMILAR ITEMS</h2>
