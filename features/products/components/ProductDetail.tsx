@@ -8,6 +8,7 @@ import {
   ProductStorageOptionType,
 } from "../types/product";
 import ProductCarousel from "./ProductCarousel";
+import ProductSpect from "./ProductSpect";
 
 export default function ProductDetail() {
   const router = useRouter();
@@ -129,6 +130,7 @@ export default function ProductDetail() {
               products={productDetail.similarProducts}
             ></ProductCarousel>
           </section>
+          <ProductSpect detail={productDetail} />
         </div>
       </div>
     </section>
