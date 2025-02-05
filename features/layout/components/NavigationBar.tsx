@@ -1,11 +1,7 @@
 import { useCartContext } from "@/features/cart/hooks/useCartContext";
 import { useRouter } from "next/router";
 
-type NavigationBarProps = {
-  showCart: boolean | undefined;
-};
-
-export default function NavigationBar({ showCart = true }: NavigationBarProps) {
+export default function NavigationBar({ showCart = true }: any) {
   const { push } = useRouter();
   const { items } = useCartContext();
 
