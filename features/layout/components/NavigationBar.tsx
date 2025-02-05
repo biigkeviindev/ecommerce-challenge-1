@@ -6,10 +6,13 @@ export default function NavigationBar({ showCart = true }) {
   const { items } = useCartContext();
 
   return (
-    <div onClick={() => push("cart")} className="navigation-bar">
+    <div className="navigation-bar">
       <img src="/Logo.svg" alt="Logo" />
       {showCart && (
-        <div className="navigation-bar__icon-container">
+        <div
+          onClick={() => push("cart")}
+          className="navigation-bar__icon-container"
+        >
           <img
             className="navigation-bar__icon"
             src="/carticon.svg"

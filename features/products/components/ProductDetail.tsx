@@ -18,6 +18,7 @@ export default function ProductDetail() {
     error,
   } = useProductById(String(router.query.detail));
 
+  const [finalPrice, setFinalPrice] = useState<number | undefined>(undefined);
   const [styleSelector, setStyleSelector] = useState<
     ProductColorOptionType | undefined
   >(undefined);
@@ -25,10 +26,7 @@ export default function ProductDetail() {
     ProductStorageOptionType | undefined
   >(undefined);
 
-  useEffect(() => {
-    setStyleSelector(productDetail?.colorOptions[0]);
-    setCapacitySelector(productDetail?.storageOptions[0]);
-  }, [productDetail]);
+  const defaultImage = productDetail?.colorOptions[0]?.imageUrl;
 
   const addToCart = () => {
     if (!styleSelector || !capacitySelector) return;
@@ -41,10 +39,15 @@ export default function ProductDetail() {
         color: styleSelector.name,
         capacity: capacitySelector.capacity,
       },
-      price: 100,
+      price: finalPrice,
     };
     setItems([...items, itemToAdd]);
   };
+
+  useEffect(() => {
+    let priceFinal = productDetail?.basePrice + capacitySelector?.price;
+    setFinalPrice(priceFinal);
+  }, [capacitySelector]);
 
   if (error || !productDetail) return <p>No se encontro el telefono.</p>;
 
@@ -54,7 +57,7 @@ export default function ProductDetail() {
         <div>
           <img
             className="detail-view__image-url"
-            src={styleSelector?.imageUrl}
+            src={styleSelector ? styleSelector.imageUrl : defaultImage}
             alt=""
           />
         </div>
@@ -62,7 +65,9 @@ export default function ProductDetail() {
         <div>
           <h3 className="detail-view__product-name">{productDetail?.name}</h3>
           <p className="detail-view__product-price">
-            From {productDetail?.basePrice} EUR
+            {finalPrice
+              ? `${finalPrice} EUR`
+              : `From ${productDetail?.basePrice} EUR`}
           </p>
         </div>
 
@@ -70,37 +75,43 @@ export default function ProductDetail() {
           <section>
             <p>Storage ¿hOW MUCH SPACE DO YOU NEED?</p>
             <div className="detail-view__feature-box">
-              {productDetail?.storageOptions.map((storage: any) => (
-                <div
-                  onClick={() => setCapacitySelector(storage)}
-                  className="detail-view__capacity-box"
-                  style={{
-                    borderColor:
-                      storage?.capacity === capacitySelector?.capacity
-                        ? "black"
-                        : "",
-                  }}
-                >
-                  <p>{storage.capacity}</p>
-                </div>
-              ))}
+              {productDetail?.storageOptions.map(
+                (storage: ProductStorageOptionType) => (
+                  <div
+                    onClick={() => setCapacitySelector(storage)}
+                    className="detail-view__capacity-box"
+                    style={{
+                      borderColor:
+                        storage?.capacity === capacitySelector?.capacity
+                          ? "black"
+                          : "",
+                    }}
+                  >
+                    <p>{storage.capacity}</p>
+                  </div>
+                )
+              )}
             </div>
           </section>
 
           <section className="Color">
             <p>color. pick your favourite.</p>
             <div className="detail-view__feature-box">
-              {productDetail?.colorOptions.map((style: any) => (
-                <div
-                  className="detail-view__color-box"
-                  onClick={() => setStyleSelector(style)}
-                  style={{
-                    backgroundColor: style.hexCode,
-                    borderColor:
-                      style?.hex === styleSelector?.hexCode ? "#000" : "",
-                  }}
-                />
-              ))}
+              {productDetail?.colorOptions.map(
+                (style: ProductColorOptionType) => (
+                  <div
+                    className="detail-view__color-box"
+                    onClick={() => setStyleSelector(style)}
+                    style={{
+                      backgroundColor: style.hexCode,
+                      outline:
+                        style?.hexCode === styleSelector?.hexCode
+                          ? "2px solid #000000"
+                          : "",
+                    }}
+                  />
+                )
+              )}
             </div>
             <p>{styleSelector?.name}</p>
           </section>
