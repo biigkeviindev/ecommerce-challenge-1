@@ -1,0 +1,9 @@
+.product-carousel {
+  display: flex;
+  &__container-items {
+    display: flex;
+    gap: 12px;
+    overflow-x: scroll;
+    padding: 14px 0;
+  }
+}

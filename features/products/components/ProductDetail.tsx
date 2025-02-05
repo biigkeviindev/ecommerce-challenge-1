@@ -7,6 +7,7 @@ import {
   ProductColorOptionType,
   ProductStorageOptionType,
 } from "../types/product";
+import ProductCarousel from "./ProductCarousel";
 
 export default function ProductDetail() {
   const router = useRouter();
@@ -122,6 +123,12 @@ export default function ProductDetail() {
           >
             AÑADIR
           </button>
+          <section>
+            <p>SIMILAR ITEMS</p>
+            <ProductCarousel
+              products={productDetail.similarProducts}
+            ></ProductCarousel>
+          </section>
         </div>
       </div>
     </section>

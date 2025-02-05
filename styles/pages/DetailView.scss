@@ -4,6 +4,9 @@
   }
 
   &__phone-selectors {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     text-transform: uppercase;
     padding: 10px 0;
   }
