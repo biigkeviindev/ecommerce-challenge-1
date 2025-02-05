@@ -6,7 +6,7 @@ import { CartItemType } from "../types/cart";
 export default function CartShopController() {
   const [total, setTotal] = useState(0);
   const { push } = useRouter();
-  const { items, setItems } = useCartContext();
+  const { items } = useCartContext();
 
   const goShipping = () => push("/");
 
@@ -25,9 +25,11 @@ export default function CartShopController() {
   return (
     <div className="cart-shop-controller">
       <div>
-        <p className="cart-shop-controller__total-shop">
-          TOTAL: <span> {total} EUR</span>
-        </p>
+        {items.length ? (
+          <p className="cart-shop-controller__total-shop">
+            TOTAL: <span> {total} EUR</span>
+          </p>
+        ) : null}
       </div>
       <div className="cart-shop-controller__container-actions">
         <button
@@ -36,9 +38,11 @@ export default function CartShopController() {
         >
           CONTINUE SHOPPING
         </button>
-        <button className="cart-shop-controller__btn-action cart-shop-controller__btn-action--buy">
-          PAY
-        </button>
+        {items.length ? (
+          <button className="cart-shop-controller__btn-action cart-shop-controller__btn-action--buy">
+            PAY
+          </button>
+        ) : null}
       </div>
     </div>
   );
