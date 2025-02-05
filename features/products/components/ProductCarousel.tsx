@@ -10,8 +10,8 @@ export default function ProductCarousel({ products }: ProductCarouselProps) {
     <section className="product-carousel">
       <h2>SIMILAR ITEMS</h2>
       <div className="product-carousel__container-items">
-        {products?.map((product: any) => (
-          <ProductCard product={product} />
+        {products?.map((product: any, key: number) => (
+          <ProductCard product={product} key={key} />
         ))}
       </div>
     </section>
