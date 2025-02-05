@@ -1,19 +1,8 @@
 import React from "react";
 import { useRouter } from "next/router";
+import { ProductCardProps } from "../types/product";
 
-type ProductCard = {
-  product: Product;
-};
-
-type Product = {
-  basePrice: number;
-  brand: string;
-  id: string;
-  imageUrl: string;
-  name: string;
-};
-
-export default function ProductCard({ product }: ProductCard) {
+export default function ProductCard({ product }: ProductCardProps) {
   const { push } = useRouter();
 
   return (

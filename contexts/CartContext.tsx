@@ -1,7 +1,8 @@
+import { CartItemType } from "@/features/cart/types/cart";
 import { createContext, useState, ReactNode } from "react";
 
 type CartContext = {
-  items: Array<any>;
+  items: Array<CartItemType>;
   setItems: (value: any) => void;
 };
 
