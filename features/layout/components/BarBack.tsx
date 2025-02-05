@@ -1,7 +1,11 @@
 import { useRouter } from "next/router";
 import React from "react";
 
-export default function BarBack({ uri }: any) {
+type BarBackProps = {
+  uri: string;
+};
+
+export default function BarBack({ uri }: BarBackProps) {
   const { push } = useRouter();
 
   return (
