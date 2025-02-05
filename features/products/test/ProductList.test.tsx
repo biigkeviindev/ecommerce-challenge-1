@@ -5,6 +5,11 @@ import { ReactNode } from "react";
 import ProductCarousel from "../components/ProductCarousel";
 import { Product_array } from "./json/product";
 import { useRouter } from "next/router";
+import ProductList from "../components/ProductList";
+import { useProducts } from "../hooks/useProducts";
+import { CatalogProvider } from "@/contexts/CatalogContext";
+
+jest.mock("../hooks/useProducts");
 
 jest.mock("next/router", () => ({
   useRouter: jest.fn(),
@@ -15,8 +20,9 @@ describe("Test ProductCarousel test", () => {
     push: jest.fn(),
   });
 
+  (useProducts as jest.Mock).mockReturnValue({ data: Product_array });
   test("Should render card", () => {
-    render(renderSut(<ProductCarousel products={Product_array} />));
+    render(renderSut(<ProductList />));
     const cardtitle = screen.findByText("Galaxy S24 Ultra");
     expect(cardtitle);
   });
@@ -24,6 +30,8 @@ describe("Test ProductCarousel test", () => {
 
 function renderSut(children: ReactNode) {
   return (
-    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    <CatalogProvider>
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    </CatalogProvider>
   );
 }
