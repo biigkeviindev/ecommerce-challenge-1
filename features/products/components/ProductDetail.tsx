@@ -42,6 +42,8 @@ export default function ProductDetail() {
       price: finalPrice,
     };
     setItems([...items, itemToAdd]);
+    setCapacitySelector(undefined);
+    setStyleSelector(undefined);
   };
 
   useEffect(() => {
