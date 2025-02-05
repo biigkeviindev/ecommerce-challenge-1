@@ -26,7 +26,12 @@ export default function NavigationBar({ showCart = true }: NavigationBarProps) {
               />
               <p>{items.length || 0}</p>
             </div>
-            <img className="navigation-bar__btn-home" src="/home.png" alt="" />
+            <img
+              onClick={() => push("/")}
+              className="navigation-bar__btn-home"
+              src="/home.png"
+              alt=""
+            />
           </>
         )}
       </div>
