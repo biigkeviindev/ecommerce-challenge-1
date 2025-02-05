@@ -55,25 +55,23 @@ export default function ProductDetail() {
 
   return (
     <section className="detail-view">
-      <div>
-        <div>
-          <img
-            className="detail-view__image-url"
-            src={styleSelector ? styleSelector.imageUrl : defaultImage}
-            alt={productDetail.name}
-          />
+      <div className="detail-view__options">
+        <div className="container">
+          <div>
+            <img
+              className="detail-view__image-url"
+              src={styleSelector ? styleSelector.imageUrl : defaultImage}
+              alt={productDetail.name}
+            />
+          </div>
         </div>
-
-        <div>
+        <div className="container">
           <h3 className="detail-view__product-name">{productDetail?.name}</h3>
           <p className="detail-view__product-price">
             {finalPrice
               ? `${finalPrice} EUR`
               : `From ${productDetail?.basePrice} EUR`}
           </p>
-        </div>
-
-        <div className="detail-view__phone-selectors">
           <section>
             <p>Storage ¿hOW MUCH SPACE DO YOU NEED?</p>
             <div className="detail-view__feature-box">
@@ -94,42 +92,42 @@ export default function ProductDetail() {
                 )
               )}
             </div>
+            <section>
+              <p>color. pick your favourite.</p>
+              <div className="detail-view__feature-box">
+                {productDetail?.colorOptions.map(
+                  (style: ProductColorOptionType) => (
+                    <div
+                      className="detail-view__color-box"
+                      onClick={() => setStyleSelector(style)}
+                      style={{
+                        backgroundColor: style.hexCode,
+                        outline:
+                          style?.hexCode === styleSelector?.hexCode
+                            ? "2px solid #000000"
+                            : "",
+                      }}
+                    />
+                  )
+                )}
+              </div>
+              <p>{styleSelector?.name}</p>
+            </section>
+            <button
+              disabled={!styleSelector || !capacitySelector}
+              className="detail-view__add-cart"
+              onClick={addToCart}
+            >
+              AÑADIR
+            </button>
           </section>
-
-          <section className="Color">
-            <p>color. pick your favourite.</p>
-            <div className="detail-view__feature-box">
-              {productDetail?.colorOptions.map(
-                (style: ProductColorOptionType) => (
-                  <div
-                    className="detail-view__color-box"
-                    onClick={() => setStyleSelector(style)}
-                    style={{
-                      backgroundColor: style.hexCode,
-                      outline:
-                        style?.hexCode === styleSelector?.hexCode
-                          ? "2px solid #000000"
-                          : "",
-                    }}
-                  />
-                )
-              )}
-            </div>
-            <p>{styleSelector?.name}</p>
-          </section>
-          <button
-            disabled={!styleSelector || !capacitySelector}
-            className="detail-view__add-cart"
-            onClick={addToCart}
-          >
-            AÑADIR
-          </button>
-
-          <ProductCarousel
-            products={productDetail.similarProducts}
-          ></ProductCarousel>
-          <ProductSpect detail={productDetail} />
         </div>
+      </div>
+      <div className="detail-view__phone-selectors">
+        <ProductSpect detail={productDetail} />
+        <ProductCarousel
+          products={productDetail.similarProducts}
+        ></ProductCarousel>
       </div>
     </section>
   );

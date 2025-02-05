@@ -3,6 +3,18 @@
     width: 260px !important;
   }
 
+  &__options {
+    display: flex;
+    flex-direction: column;
+
+    @include apply-to("sm") {
+      flex-direction: row;
+
+      .container {
+        flex: 1;
+      }
+    }
+  }
   &__phone-selectors {
     display: flex;
     flex-direction: column;

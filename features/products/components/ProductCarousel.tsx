@@ -8,7 +8,7 @@ type ProductCarouselProps = {
 export default function ProductCarousel({ products }: any) {
   return (
     <section className="product-carousel">
-      <p>SIMILAR ITEMS</p>
+      <h2>SIMILAR ITEMS</h2>
       <div className="product-carousel__container-items">
         {products?.map((product: any) => (
           <ProductCard product={product} />
