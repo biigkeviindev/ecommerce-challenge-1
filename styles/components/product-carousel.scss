@@ -1,5 +1,7 @@
 .product-carousel {
   display: flex;
+  flex-direction: column;
+  padding: 20px 0;
   &__container-items {
     display: flex;
     gap: 12px;

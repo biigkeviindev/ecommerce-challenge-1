@@ -124,12 +124,10 @@ export default function ProductDetail() {
           >
             AÑADIR
           </button>
-          <section>
-            <p>SIMILAR ITEMS</p>
-            <ProductCarousel
-              products={productDetail.similarProducts}
-            ></ProductCarousel>
-          </section>
+
+          <ProductCarousel
+            products={productDetail.similarProducts}
+          ></ProductCarousel>
           <ProductSpect detail={productDetail} />
         </div>
       </div>
