@@ -32,3 +32,15 @@ export type ProductDetail = {
   specs: ProductSpectsType;
   storageOptions: Array<ProductStorageOptionType>;
 };
+
+export type ProductCardProps = {
+  product: ProductCard;
+};
+
+export type ProductCard = {
+  basePrice: number;
+  brand: string;
+  id: string;
+  imageUrl: string;
+  name: string;
+};

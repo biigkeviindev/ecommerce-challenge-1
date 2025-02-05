@@ -10,8 +10,8 @@ export default function ProductList() {
   return (
     <section className="products-grid">
       <div className="products-grid__list">
-        {products?.map((product: any) => (
-          <ProductCard product={product} />
+        {products?.map((product: any, key: number) => (
+          <ProductCard product={product} key={key} />
         ))}
       </div>
     </section>
