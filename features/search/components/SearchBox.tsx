@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 export default function SearchBox() {
   const { search, setSearch } = useCatalog();
-  const { data, isLoading, error } = useProducts(search, 20);
+  const { data } = useProducts(search, 20);
 
   return (
     <div className="search-box">

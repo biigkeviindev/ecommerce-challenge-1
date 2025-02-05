@@ -12,7 +12,7 @@ export default function NavigationBar({ showCart = true }) {
         {showCart && (
           <>
             <div
-              onClick={() => push("cart")}
+              onClick={() => push("/cart")}
               className="navigation-bar__icon-container"
             >
               <img

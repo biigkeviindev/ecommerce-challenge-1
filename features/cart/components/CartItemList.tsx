@@ -6,7 +6,7 @@ import { CartItemType } from "../types/cart";
 
 export default function CartItemList() {
   const { items } = useCartContext();
-
+  console.log(items);
   return (
     <section>
       <p>CART ({items.length})</p>
