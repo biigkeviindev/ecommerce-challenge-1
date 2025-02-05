@@ -16,6 +16,16 @@
     }
   }
 
+  &__btn-home {
+    width: 20px;
+    margin-left: 24px;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+  }
+
   &__icon {
     width: 18px;
     height: 18px;

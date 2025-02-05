@@ -1,6 +1,6 @@
 import { useCatalog } from "@/hooks/useCatalog";
 import { useProducts } from "@/features/products/hooks/useProducts";
-import React from "react";
+import React, { useState } from "react";
 
 export default function SearchBox() {
   const { search, setSearch } = useCatalog();
